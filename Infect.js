@@ -1,8 +1,23 @@
 // Infecticide.js
 // Cracks and nukes all servers it can, then adds a file of your choice (filename), then runs it
 export async function main(ns) {
+	const visited = [];
+	function scanServers(host) {
+		const neighbors = ns.scan(host);
+		for (const neighbor of neighbors) {
+			if (!visited.includes(neighbor)) {
+				visited.push(neighbor);
+				scanServers(neighbor);
+			}
+		}
+	}
+
+	visited.push("home");
+	scanServers("home");
+
 	const filename = "hacking.js"
-	const servers = ["home","n00dles","foodnstuff","nectar-net","max-hardware","silver-helix","computek","summit-uni","rho-construction","alpha-ent","galactic-cyber","deltaone","icarus","univ-energy","global-pharm","omnia","defcomm","taiyang-digital","titan-labs","helios","4sigma","nwo","fulcrumassets","clarkinc","powerhouse-fitness","The-Cave",".","b-and-a","zb-def","applied-energetics","vitalife","solaris","millenium-fitness","CSEC","neo-net","avmnite-02h","sigma-cosmetics","zer0","phantasy","the-hub","rothman-uni","zb-institute","lexo-corp","snap-fitness","netlink","catalyst","crush-fitness","syscore","aevum-police","aerocorp","unitalife","zeus-med","infocomm","microdyne","run4theh111z","fulcrumtech","stormtech","omnitek","kuai-gong","blade","ecorp","megacorp","nova-med","omega-net","johnson-ortho","I.I.I.I","joesguns","hong-fang-tea","harakiri-sushi","iron-gym"]
+	const servers = visited
+
 	ns.print(ns.scan())
 	for (var num = 0; num < (servers.length); num++) {
 		var servername = servers[num]
