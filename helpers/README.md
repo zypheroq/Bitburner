@@ -27,3 +27,6 @@ Used in Gangassign.js
 
 RemoteConnect.js
 Sends you to n server
+
+Install.js
+Installs all augs from slum snakes and Sector-12, Designed for SF-2, requires SF-4
