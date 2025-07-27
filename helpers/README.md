@@ -24,3 +24,6 @@ Buys all from the shop except for Formulas
 Timer.js
 Runs x script after y time
 Used in Gangassign.js
+
+RemoteConnect.js
+Sends you to n server
